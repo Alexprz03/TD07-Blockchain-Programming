@@ -16,9 +16,12 @@ contract ERC721 is Context, ERC165, IERC721 {
     using SafeMath for uint256;
     using Address for address;
     using Counters for Counters.Counter;
-
-    string public name = "esilv";
+	
+	// Create a ‘name’ public variable to give a name to your token registry
+    string public name = "taken";
+	// Counter to show total number of created token
     uint256 public counter = 0;
+	
     // Equals to `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
     // which can be also obtained as `IERC721Receiver(0).onERC721Received.selector`
     bytes4 private constant _ERC721_RECEIVED = 0x150b7a02;
