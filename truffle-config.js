@@ -23,6 +23,9 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 const HDWalletProvider = require("truffle-hdwallet-provider");
+const MNEMONIC = "canyon tuna gossip cancel love syrup gas lottery dilemma bracket clay smoke";
+//const MNEMONIC = "walnut symptom hazard fever hollow assume utility suit budget fish sell flower";
+
 require('dotenv').config()
 module.exports = {
   /**
@@ -36,6 +39,11 @@ module.exports = {
    */
 
   networks: {
+	development: {
+        host: "127.0.0.1",
+        port: 7545,
+        network_id: "*"
+        },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
@@ -44,8 +52,8 @@ module.exports = {
     //
     ganache: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "5777",       // Any network (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
      },
 
     // Another network with more advanced options...
@@ -76,7 +84,7 @@ module.exports = {
       // production: true    // Treats this network as if it was a public net. (default: false)
     // }
     rinkeby: {
-      provider: ()=>  new HDWalletProvider( process.env.MNENOMIC, "https://rinkeby.infura.io/v3/"+process.env.INFURA_API_KEY),
+      provider: ()=>  new HDWalletProvider( MNEMONIC, "https://rinkeby.infura.io/v3/935cb2b62d01424cb85c5076ead35b07"),
       network_id: '*',
       gas: 4612388 // Gas limit used for deploys
     }
