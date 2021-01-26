@@ -23,8 +23,8 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 const HDWalletProvider = require("truffle-hdwallet-provider");
-const MNEMONIC = "canyon tuna gossip cancel love syrup gas lottery dilemma bracket clay smoke";
-//const MNEMONIC = "walnut symptom hazard fever hollow assume utility suit budget fish sell flower";
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 require('dotenv').config()
 module.exports = {
@@ -84,7 +84,7 @@ module.exports = {
       // production: true    // Treats this network as if it was a public net. (default: false)
     // }
     rinkeby: {
-      provider: ()=>  new HDWalletProvider( MNEMONIC, "https://rinkeby.infura.io/v3/935cb2b62d01424cb85c5076ead35b07"),
+      provider: ()=>  new HDWalletProvider( MNEMONIC, "https://ropsten.infura.io/v3/YOUR-PROJECT-ID"),
       network_id: '*',
       gas: 4612388 // Gas limit used for deploys
     }
